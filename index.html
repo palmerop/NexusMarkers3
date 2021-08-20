@@ -102,13 +102,10 @@
             });
 	
 		
-	    map.loadImage(
-		'https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png',
-		(error, image) => {
-			if (error) throw error;
- 			
-			// Add the image to the map style.
-			map.addImage('info', image);
+	    map.loadImage('https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png', (error, image) => {
+	    if (error) throw error;
+	    // Add the loaded image to the style's sprite with the ID 'kitten'.
+	    map.addImage('info', image);
 	    });    
 		    
 	    // This adds the Nexus marker tileset as source
