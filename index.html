@@ -21,7 +21,16 @@
 		max-width: 300px;
 		align-content: left;
 	} 
-    </style>
+   	.marker {
+	background-image: url('https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	}
+	
+   </style>
 
 	
 </head>
@@ -91,26 +100,32 @@
                 url: 'mapbox://reliefweb.3xu48qmc',
                 promoteId: 'Terr_Name'
             });
+	
 		
-		
-	     // This adds the Nexus marker tileset as source
-	     map.addSource('Nexus-markers', {
+	    map.loadImage(
+		'https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png'
+		(error, image) => {
+			if (error) throw error;
+ 			
+			// Add the image to the map style.
+			map.addImage('info', image);
+	    });    
+		    
+	    // This adds the Nexus marker tileset as source
+	    map.addSource('Nexus-markers', {
 		type: 'vector',
 		// Add the Nexus marker tileset
 		url: 'mapbox://reliefweb.cksi4nxhw2qf32ds8dnmcb3xz-74j2u'
 		},"Countries 2-4");
 	     
-	     map.addLayer({
+	    map.addLayer({
 		'id': 'Nexus-markers-layer',
-		'type': 'circle',
+		'type': 'symbol',
 		'source': 'Nexus-markers',
 		'source-layer': 'wrl_nexus',
-		'paint': {
-		'circle-color': '#418FDE',
-		'circle-radius': 6,
-		'circle-stroke-color': 'white',
-		'circle-stroke-width': 1
-		}
+		'layout': {
+			'icon-image': 'info',
+			'icon-size': 0.25
 	     });
 	
 	});
