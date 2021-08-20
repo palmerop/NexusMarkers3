@@ -91,7 +91,9 @@
                 url: 'mapbox://reliefweb.3xu48qmc',
                 promoteId: 'Terr_Name'
             });
-		
+	    
+	    map.loadImage('https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png', 'info');
+	    map.addImage('info');
 		
 	     // This adds the Nexus marker tileset as source
 	     map.addSource('Nexus-markers', {
@@ -106,7 +108,7 @@
 		'source': 'Nexus-markers',
 		'source-layer': 'wrl_nexus',
 	        "layout": {
-		"icon-image": "harbor-15",
+		"icon-image": info,
 		"icon-size":1.5
 		}
 	     });
