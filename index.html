@@ -14,15 +14,6 @@
 	body { margin: 0; padding: 0; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%;}
 	
-	.marker {
-	background-image: url('https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png');
-	background-size: cover;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	cursor: pointer;
-	}
-	
         .mapboxgl-popup {
         	-webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.6));
         	filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.6));
@@ -111,14 +102,12 @@
 	     
 	     map.addLayer({
 		'id': 'Nexus-markers-layer',
-		'type': 'circle',
+		'type': 'symbol',
 		'source': 'Nexus-markers',
 		'source-layer': 'wrl_nexus',
-		'paint': {
-		'circle-color': '#418FDE',
-		'circle-radius': 6,
-		'circle-stroke-color': 'white',
-		'circle-stroke-width': 1
+	        "layout": {
+		"icon-image": "harbor_icon",
+		"icon-size":1.5
 		}
 	     });
 	
