@@ -91,18 +91,22 @@
                 url: 'mapbox://reliefweb.3xu48qmc',
                 promoteId: 'Terr_Name'
             });
-	    
-	    map.loadImage('https://drive.google.com/file/d/1lMPOhjzk9qT00HcNho9P6z0ECF1LcLTo/view?usp=sharing', 'info');
-	    map.addImage('info');
-		
-	     // This adds the Nexus marker tileset as source
-	     map.addSource('Nexus-markers', {
+
+	    // Load an image from an external URL.
+	    map.loadImage('https://github.com/palmerop/NexusMarkers3/blob/474c9993660285818313e7f5db036dcd2484b259/info.png', (error, image) => {
+	    if (error) throw error;
+	    // Add the loaded image to the style's sprite with the ID 'kitten'.
+	    map.addImage('info', image);
+	    });
+	
+	    // This adds the Nexus marker tileset as source
+	    map.addSource('Nexus-markers', {
 		type: 'vector',
 		// Add the Nexus marker tileset
 		url: 'mapbox://reliefweb.cksi4nxhw2qf32ds8dnmcb3xz-74j2u'
 		},"Countries 2-4");
 	     
-	     map.addLayer({
+	    map.addLayer({
 		'id': 'Nexus-markers-layer',
 		'type': 'symbol',
 		'source': 'Nexus-markers',
